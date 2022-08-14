@@ -1,10 +1,14 @@
 # cli-executable-publishable
 
-Template that you can use to create an executable cli, ready to be published in NPM.
+Template that you can use to create an executable CLI, ready to be published in NPM. It does not use any bundler, dependencies or unnecessary abstractions.
 
-It does not use any bundler nor dependencies:
+This is what it looks like when you are developing it:
 
-![screenshot](assets/screenshot.png)
+![screenshot](assets/screenshot-01.png)
+
+And this is what it would look like to the hypothetical end consumer of this CLI:
+
+![screenshot](assets/screenshot-02.png)
 
 If you are wondering whether or not you need a bundler for your purposes, you can read [this answer](https://stackoverflow.com/questions/67245509/why-do-we-still-need-module-bundlers-when-we-have-native-esm-support-in-browsers) on stackoverflow and maybe [this blog article](https://cmdcolin.github.io/posts/2022-05-27-youmaynotneedabundler).
 
