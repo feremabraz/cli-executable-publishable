@@ -6,17 +6,17 @@ import url from 'url'
 const args = process.argv.slice(2)
 const argv = {}
 
-for (let arg of args) {
+args.forEach((arg) => {
   if (arg.indexOf('--') === 0) {
     arg = arg.substring(2)
-    var index = arg.indexOf('=')
+    const index = arg.indexOf('=')
     if (index > 0) {
       argv[arg.substring(0, index)] = arg.substring(index + 1)
     } else {
       argv[arg] = true
     }
   }
-}
+})
 
 if (argv.debug) {
   console.log(argv)
@@ -24,16 +24,18 @@ if (argv.debug) {
 }
 
 if (argv.help) {
-  console.log('Short description.')
+  console.log('This is a CLI template.')
+  console.log('')
   console.log('Usage: cli-executable-publishable [options]')
   console.log('')
   console.log('Options:')
   console.log('  --help     Shows this help.')
-  console.log('  --debug    Prints debug information.')
+  console.log('  --debug    Prints passed options and their arguments.')
   console.log('  --version  Current version.')
   console.log('  --hello    Echoes the given argument.')
   console.log('')
   console.log('Examples:')
+  console.log('  $ cli-executable-publishable --hello=world')
   console.log('  $ cli-executable-publishable --hello world')
   process.exit(0)
 }
@@ -49,7 +51,11 @@ if (argv.version) {
 
 if (argv.hello) {
   const value = args[args.findIndex((item) => item === '--hello') + 1]
-  console.log(`Hello ${value}`)
+  if (value.indexOf('=') > 0) {
+    console.log(`Hello ${value.substring(value.indexOf('=') + 1)}!`)
+  } else {
+    console.log(`Hello ${value}!`)
+  }
   process.exit(0)
 }
 
