@@ -3,11 +3,10 @@ import fs from 'fs'
 import path from 'path'
 import url from 'url'
 
-let args = process.argv.slice(2)
-let argv = {}
+const args = process.argv.slice(2)
+const argv = {}
 
-for (var i = 0; i < args.length; i++) {
-  var arg = args[i]
+for (let arg of args) {
   if (arg.indexOf('--') === 0) {
     arg = arg.substring(2)
     var index = arg.indexOf('=')
@@ -25,17 +24,25 @@ if (argv.debug) {
 }
 
 if (argv.help) {
-  console.log(
-    'Usage: cli-executable-publishable [--help] [--version] [--debug] [--hello <value>]',
-  )
+  console.log('Short description.')
+  console.log('Usage: cli-executable-publishable [options]')
+  console.log('')
+  console.log('Options:')
+  console.log('  --help     Shows this help.')
+  console.log('  --debug    Prints debug information.')
+  console.log('  --version  Current version.')
+  console.log('  --hello    Echoes the given argument.')
+  console.log('')
+  console.log('Examples:')
+  console.log('  $ cli-executable-publishable --hello world')
   process.exit(0)
 }
 
 if (argv.version) {
-  var filename = url.fileURLToPath(import.meta.url)
-  var packagePath = path.dirname(filename) + '/package.json'
-  var packageJSON = fs.readFileSync(packagePath)
-  var version = JSON.parse(packageJSON).version
+  const filename = url.fileURLToPath(import.meta.url)
+  const packagePath = `${path.dirname(filename)}/package.json`
+  const packageJSON = fs.readFileSync(packagePath)
+  const version = JSON.parse(packageJSON).version
   console.log(version)
   process.exit(0)
 }
