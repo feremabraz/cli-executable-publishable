@@ -21,6 +21,7 @@ args.forEach((arg) => {
 if (argv.debug) {
   console.log(argv)
   console.log(args)
+  args.splice(args.indexOf('--debug'), 1)
 }
 
 if (argv.help) {
