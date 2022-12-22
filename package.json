@@ -5,10 +5,10 @@
   },
   "description": "Template to publish a CLI to NPM without a bundler.",
   "devDependencies": {
-    "eslint": "^8.21.0",
+    "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",
-    "husky": "^8.0.1",
-    "prettier": "^2.7.1"
+    "husky": "^8.0.2",
+    "prettier": "^2.8.1"
   },
   "keywords": [
     "cli",
@@ -25,6 +25,6 @@
   "type": "module",
   "version": "1.0.0",
   "dependencies": {
-    "commander": "^9.4.0"
+    "commander": "^9.4.1"
   }
 }
